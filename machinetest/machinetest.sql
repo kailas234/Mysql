@@ -6,3 +6,12 @@ SELECT * FROM employee WHERE Department='Sales' AND Leaves>5;
 SELECT COUNT(Name)AS department_operation FROM employee WHERE Department='Operations';
 SELECT Department, COUNT(Name) FROM employee GROUP BY Department;
 SELECT Department, SUM(Leaves) FROM employee GROUP BY Department HAVING SUM(Leaves>10);
+SELECT Employee.Name FROM Employee
+JOIN Exam
+ON employee.ID = Exam.Employee_id
+WHERE Exam.exam_status = 'Pass';
+
+SELECT Name FROM Employee
+WHERE id NOT IN (
+    SELECT Employee_id
+    FROM Exam);
